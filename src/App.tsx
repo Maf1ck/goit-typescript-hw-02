@@ -69,7 +69,7 @@ function App() {
   const closeModal = (): void => setSelectedImage(null);
 
   return (
-    <>
+    <div className="app-container">
       <Toaster position="top-right" />
       {selectedImage && (
         <ImageModal
@@ -78,14 +78,28 @@ function App() {
           onRequestClose={closeModal}
         />
       )}
-      <SearchBar handleChangeQuery={handleChangeQuery} />
-      <ImageGallery images={hits} onImageClick={handleImageClick} />
-      {isLoading && <Loader />}
-      {isError && <ErrorMessage />}
-      {hits.length > 0 && page < totalPages && !isLoading && (
-        <LoadMoreBtn onClick={handleLoadMore} />
+      <div className="search-container">
+        <SearchBar handleChangeQuery={handleChangeQuery} />
+      </div>
+      <div className="gallery-container">
+        <ImageGallery images={hits} onImageClick={handleImageClick} />
+      </div>
+      {isLoading && (
+        <div className="loader-container">
+          <Loader />
+        </div>
       )}
-    </>
+      {isError && (
+        <div className="error-container">
+          <ErrorMessage />
+        </div>
+      )}
+      {hits.length > 0 && page < totalPages && !isLoading && (
+        <div className="load-more-container">
+          <LoadMoreBtn onClick={handleLoadMore} />
+        </div>
+      )}
+    </div>
   );
 }
 

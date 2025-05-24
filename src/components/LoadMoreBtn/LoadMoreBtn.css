@@ -1,0 +1,30 @@
+.load-more-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.load-more-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px var(--shadow-color);
+}
+
+.load-more-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.load-more-btn:disabled {
+  background-color: var(--border-color);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+} 
